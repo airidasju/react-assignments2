@@ -2,6 +2,8 @@ import './App.scss';
 import Create from './Components/Create';
 import { GlobalProvider } from './Components/Global';
 import List from './Components/List';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
   return (

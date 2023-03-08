@@ -27,48 +27,46 @@ app.get('/accounts', (req, res) => {
 app.post('/accounts', (req, res) => {
     let allData = fs.readFileSync('./data/accounts.json', 'utf8');
     allData = JSON.parse(allData);
+    const id = uuidv4();
     const data = {
-        name: req.body.name,
-        lastName: req.body.lastName,
-        balance: req.body.balance,
-        id: req.body.id
+        number: req.body.number,
+        id
     };
     allData.push(data);
     allData = JSON.stringify(allData);
     fs.writeFileSync('./data/accounts.json', allData, 'utf8');
     res.json({
-        message: { text: 'New number account got saved', 'type': 'ok' }
+        message: { text: 'New number is saved', 'type': 'success' }
     });
 });
 
 
-// app.delete('/dices/:id', (req, res) => {
-//     let allData = fs.readFileSync('./data.json', 'utf8');
-//     allData = JSON.parse(allData);
-//     let deletedData = allData.filter(d => req.params.id !== d.id);
-//     deletedData = JSON.stringify(deletedData);
-//     fs.writeFileSync('./data.json', deletedData, 'utf8');
+app.delete('/accounts/:id', (req, res) => {
+    let allData = fs.readFileSync('./data/accounts.json', 'utf8');
+    allData = JSON.parse(allData);
+    let deletedData = allData.filter(d => req.params.id !== d.id);
+    deletedData = JSON.stringify(deletedData);
+    fs.writeFileSync('./data/accounts.json', deletedData, 'utf8');
+    res.json({ message: { text: 'The Number was deleted', 'type': 'danger' } });
+});
 
-//     res.json({ message: { text: 'The dice was deleted', 'type': 'error' } });
-// });
 
+app.put('/accounts/:action/:id', (req, res) => {
+    let allData = fs.readFileSync('./data/accounts.json', 'utf8');
+    allData = JSON.parse(allData);
+    let editedData;
+    if (req.params.action == 'add') {
+        editedData = allData
+            .map(d => req.params.id === d.id ? {...d, number: d.number + req.body.number } : {...d });
+    } else if (req.params.action == 'rem') {
+        editedData = allData
+            .map(d => req.params.id === d.id ? {...d, number: d.number - req.body.number } : {...d });
+    }
+    editedData = JSON.stringify(editedData);
+    fs.writeFileSync('./data/accounts.json', editedData, 'utf8');
 
-// app.put('/dices/:id', (req, res) => {
-//     let allData = fs.readFileSync('./data.json', 'utf8');
-//     allData = JSON.parse(allData);
-
-//     const data = {
-//         number: req.body.number,
-//         size: req.body.size,
-//         color: req.body.color,
-//     };
-
-//     let editedData = allData.map(d => req.params.id === d.id ? {...d, ...data } : {...d });
-//     editedData = JSON.stringify(editedData);
-//     fs.writeFileSync('./data.json', editedData, 'utf8');
-
-//     res.json({ message: { text: 'New dice is was edited', 'type': '' } });
-// });
+    res.json({ message: { text: 'Number was edited', 'type': 'info' } });
+});
 
 app.listen(port, () => {
     console.log(`LN is on port number: ${port}`);

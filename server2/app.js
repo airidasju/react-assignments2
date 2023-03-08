@@ -18,14 +18,14 @@ app.use(express.json());
 
 
 // API
-app.get('/accounts', (req, res) => {
-    let allData = fs.readFileSync('./data/accounts.json', 'utf8');
+app.get('/numbers', (req, res) => {
+    let allData = fs.readFileSync('./data/numbers.json', 'utf8');
     allData = JSON.parse(allData);
     res.json(allData);
 });
 
-app.post('/accounts', (req, res) => {
-    let allData = fs.readFileSync('./data/accounts.json', 'utf8');
+app.post('/numbers', (req, res) => {
+    let allData = fs.readFileSync('./data/numbers.json', 'utf8');
     allData = JSON.parse(allData);
     const id = uuidv4();
     const data = {
@@ -34,25 +34,25 @@ app.post('/accounts', (req, res) => {
     };
     allData.push(data);
     allData = JSON.stringify(allData);
-    fs.writeFileSync('./data/accounts.json', allData, 'utf8');
+    fs.writeFileSync('./data/numbers.json', allData, 'utf8');
     res.json({
         message: { text: 'New number is saved', 'type': 'success' }
     });
 });
 
 
-app.delete('/accounts/:id', (req, res) => {
-    let allData = fs.readFileSync('./data/accounts.json', 'utf8');
+app.delete('/numbers/:id', (req, res) => {
+    let allData = fs.readFileSync('./data/numbers.json', 'utf8');
     allData = JSON.parse(allData);
     let deletedData = allData.filter(d => req.params.id !== d.id);
     deletedData = JSON.stringify(deletedData);
-    fs.writeFileSync('./data/accounts.json', deletedData, 'utf8');
+    fs.writeFileSync('./data/numbers.json', deletedData, 'utf8');
     res.json({ message: { text: 'The Number was deleted', 'type': 'danger' } });
 });
 
 
-app.put('/accounts/:action/:id', (req, res) => {
-    let allData = fs.readFileSync('./data/accounts.json', 'utf8');
+app.put('/numbers/:action/:id', (req, res) => {
+    let allData = fs.readFileSync('./data/numbers.json', 'utf8');
     allData = JSON.parse(allData);
     let editedData;
     if (req.params.action == 'add') {
@@ -63,7 +63,7 @@ app.put('/accounts/:action/:id', (req, res) => {
             .map(d => req.params.id === d.id ? {...d, number: d.number - req.body.number } : {...d });
     }
     editedData = JSON.stringify(editedData);
-    fs.writeFileSync('./data/accounts.json', editedData, 'utf8');
+    fs.writeFileSync('./data/numbers.json', editedData, 'utf8');
 
     res.json({ message: { text: 'Number was edited', 'type': 'info' } });
 });

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-const URL = 'http://localhost:3003/accounts';
+const URL = 'http://localhost:3003/numbers';
 
 
 export const useRead = _ => {
@@ -11,7 +11,6 @@ export const useRead = _ => {
     useEffect(() => {
         axios.get(URL)
             .then(res => setList(res.data));
-
     }, [update]);
 
 

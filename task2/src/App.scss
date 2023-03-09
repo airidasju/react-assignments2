@@ -1,10 +1,201 @@
-.App-header {
+.App {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   font-size: calc(10px + 2vmin);
   color: white;
+  gap: 50px;
+}
+
+.canvas {
+  display: flex;
+  background-color: rgb(43, 40, 35);
+  border: whitesmoke 1px solid;
+  padding: 10px;
+  flex-direction: column;
+  width: 800px;
+}
+
+.all-clients {
+  display: flex;
+  border: whitesmoke 1px solid;
+  padding: 10px;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-bin {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+  align-items: center;
+}
+
+.input-field {
+  height: 20px;
+}
+
+.clientele {
+  display: flex;
+  flex-direction: column;
+}
+
+.client-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+.submit-acc {
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  padding: 3px 50px;
+  font-size: 18px;
+  background-color: rgb(43, 40, 35);
+  border: 2px solid whitesmoke;
+  color: whitesmoke;
+  border-radius: 5px;
+  align-self: center;
+  margin-top: 15px;
+}
+
+ul {
+  padding: 0 20px;
+}
+
+.single-client {
+  display: flex;
+  justify-content: space-between;
+}
+
+.money {
+  width: 70px;
+}
+
+.money-bin {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 300px;
+}
+
+.money-label {
+  display: flex;
+  flex-direction: column;
+  font-size: 10px;
+}
+
+.money-btn {
+  border-radius: 5px;
+  width: 30px;
+  height: 30px;
+  margin-top: 10px;
+  border: 1px whitesmoke solid;
+  color: whitesmoke;
+  &.add {
+    background-color: green;
+  }
+
+  &.remove {
+    background-color: red;
+  }
+}
+
+.amount-toChange {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.modal {
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  padding: 30px;
+  border-radius: 10px;
+  &.insufficient {
+    background-color: rgb(247, 161, 161);
+  }
+  &.created {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(100, 189, 112);
+  }
+}
+
+.client-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.remove-user {
+  font-size: 16px;
+  background-color: rgb(43, 40, 35);
+  border: none;
+  color: red;
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.del-confirm {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 5px;
+  font-size: 30px;
+  height: 140px;
+  width: 240px;
+
+  left: 50%;
+  top: 50%;
+
+  margin-left: -120px;
+  margin-top: -70px;
+
+  background-color: rgb(255, 136, 136);
+  border-radius: 10px;
+}
+
+.del-confirmBtn {
+  color: whitesmoke;
+  border: 1px whitesmoke solid;
+  padding: 6px;
+  border-radius: 5px;
+  font-size: 20px;
+  &.accept {
+    background-color: green;
+  }
+  &.deny {
+    background-color: red;
+  }
+}
+
+.summary {
+  background-color: rgb(43, 40, 35);
+  border: 2px solid whitesmoke;
+  margin-top: 150px;
+  width: 400px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
 }

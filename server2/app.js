@@ -20,12 +20,23 @@ app.use(express.json());
 app.post('/accounts', (req, res) => {
   let allData = fs.readFileSync('./data/accounts.json', 'utf8');
   allData = JSON.parse(allData);
-  const data = { ...req.body };
-  data.id = uuidv4();
+  const id = uuidv4()
+  const data = {
+     name: req.body.name,
+     lastName: req.body.lastName,
+     balance: req.body.balance,
+     deleting: req.body.deleting,
+     id
+    };
+  promiseId = req.body.promiseId
   allData.push(data);
   allData = JSON.stringify(allData);
   fs.writeFileSync('./data/accounts.json', allData, 'utf8');
-  res.json({ message: 'ok' });
+  res.json({ 
+    message: 'ok',
+    promiseId,
+    id
+});
 });
 
 app.get('/accounts', (req, res) => {

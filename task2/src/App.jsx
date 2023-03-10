@@ -34,9 +34,14 @@ function App() {
     if(createPerson === null) {
       return
     }
+    //PROMISE
+    const promiseId = uuidv4()
+    setPerson(d => [...d, {...createPerson, promiseId}])
 
-    axios.post(URL, createPerson)
-        .then(res => console.log(res.data));
+    //SERVER
+
+    axios.post(URL, {...createPerson, promiseId})
+        .then(res => setPerson(d => d.map(d => res.data.promiseId === d.promiseId ? {...d, id:  res.data.id, promiseId: null} : {...d})));
 
 }, [createPerson]);
 

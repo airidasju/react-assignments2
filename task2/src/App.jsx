@@ -40,6 +40,17 @@ function App() {
 
 }, [createPerson]);
 
+useEffect(() => {
+
+  if(createPerson === null) {
+    return
+  }
+
+  axios.post(URL, createPerson)
+      .then(res => console.log(res.data));
+
+}, [createPerson]);
+
 
 
   return (

@@ -2,6 +2,9 @@ import { useState } from 'react';
 import InsufficientPop from './InsufficientPop';
 import AddedMoneyModal from './AddedMoneyModal';
 import DeductMoneyModal from './DeductMoneyModal';
+import axios from 'axios';
+const URL = 'http://localhost:3003/accounts';
+
 
 function Amount({ person, setPerson, people }) {
   const [balance, setBalance] = useState(0);
@@ -34,6 +37,9 @@ function Amount({ person, setPerson, people }) {
         // No change
         return person;
       } else {
+        axios.put(URL + "/" + p.id , {...p,
+          balance: Number(person.balance) + Number(balance)})
+            .then(res => console.log(res.data));
         return {
           ...person,
           balance: Number(person.balance) + Number(balance),
@@ -58,6 +64,9 @@ function Amount({ person, setPerson, people }) {
         // No change
         return person;
       } else {
+        axios.put(URL + "/" + p.id , {...p,
+          balance: Number(person.balance) - Number(balance)})
+            .then(res => console.log(res.data));
         return {
           ...person,
           balance: Number(person.balance) - Number(balance),

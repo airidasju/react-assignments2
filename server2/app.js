@@ -54,6 +54,23 @@ app.delete('/accounts/:id', (req, res) => {
   res.json({ message: 'ok' });
 });
 
+app.put('/accounts/:id', (req, res) => {
+    let allData = fs.readFileSync('./data/accounts.json', 'utf8');
+    allData = JSON.parse(allData);
+
+    const data = {
+        name: req.body.name,
+        lastName: req.body.lastName,
+        balance: req.body.balance,
+        deleting: req.body.deleting,
+       };
+
+    let editedData = allData.map((d) => req.params.id === d.id ? {...d, ...data} : {...d});
+    editedData = JSON.stringify(editedData);
+    fs.writeFileSync('./data/accounts.json', editedData, 'utf8');
+    res.json({ message: 'ok' });
+  });
+
 app.listen(port, () => {
   console.log(`LN is on port number: ${port}`);
 });

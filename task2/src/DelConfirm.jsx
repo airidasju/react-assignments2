@@ -1,8 +1,16 @@
+import axios from 'axios';
+
+const URL = 'http://localhost:3003/accounts';
+
 function DelConfirm({ setPerson, setDelConfirm, p }) {
   const delAcceptHandler = (el) => {
     setPerson((pers) => pers.filter((pers) => pers.id !== el.id));
     setDelConfirm(false);
     el.deleting = false;
+
+      axios.delete(URL + '/' + el.id)
+          .then(res => console.log(res.data));
+    
   };
 
   const delCancelHandler = (el) => {

@@ -10,18 +10,18 @@ const URL = 'http://localhost:3003/accounts';
 
 function App() {
   const [createPerson, setCreatePerson] = useState(null);
-  const [person, setPerson] = useState(null)
+  const [person, setPerson] = useState(null);
 
   const [selectedFilter, setSelectedFilter] = useState('all');
 
   const addPerson = (name, lastName) => {
-    setCreatePerson(
-      {
-        name: name,
-        lastName: lastName,
-        balance: 0,
-        deleting: false,
-      })}
+    setCreatePerson({
+      name: name,
+      lastName: lastName,
+      balance: 0,
+      deleting: false,
+    });
+  };
 
   useEffect(() => {
     axios.get(URL).then((res) => {
@@ -30,25 +30,33 @@ function App() {
   }, []);
 
   useEffect(() => {
-
-    if(createPerson === null) {
-      return
+    if (createPerson === null) {
+      return;
     }
     //PROMISE
-    const promiseId = uuidv4()
-    setPerson(d => [...d, {...createPerson, promiseId}])
+    const promiseId = uuidv4();
+    setPerson((d) => [...d, { ...createPerson, promiseId }]);
 
     //SERVER
 
-    axios.post(URL, {...createPerson, promiseId})
-        .then(res => setPerson(d => d.map(d => res.data.promiseId === d.promiseId ? {...d, id:  res.data.id, promiseId: null} : {...d})));
-
-}, [createPerson]);
-
-
+    axios
+      .post(URL, { ...createPerson, promiseId })
+      .then((res) =>
+        setPerson((d) =>
+          d.map((d) =>
+            res.data.promiseId === d.promiseId
+              ? { ...d, id: res.data.id, promiseId: null }
+              : { ...d },
+          ),
+        ),
+      );
+  }, [createPerson]);
 
   return (
     <div className='App'>
+      <div className='bank-name'>
+        BANK OF<span className='kaunas'>KAUNAS</span>
+      </div>
       <Summary person={person}></Summary>
       <div className='canvas'>
         <ContactForm addPerson={addPerson}></ContactForm>

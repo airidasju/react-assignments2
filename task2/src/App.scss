@@ -13,10 +13,12 @@
 .canvas {
   display: flex;
   background-color: rgb(49, 65, 49);
+  gap: 30px;
   padding: 30px 20px;
   border-radius: 10px;
   flex-direction: column;
   width: 800px;
+  margin-bottom: 20px;
 }
 
 .all-clients {
@@ -25,7 +27,6 @@
   border-radius: 10px;
   background-color: rgb(26, 34, 26);
   padding: 20px;
-  margin-bottom: 20px;
   gap: 10px;
   justify-content: center;
   align-items: center;
@@ -40,7 +41,7 @@
 }
 
 .input-bin {
-  width: 350px;
+  width: 370px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -48,18 +49,27 @@
 
 .input-field {
   height: 20px;
+  width: 150px;
   border-radius: 10px;
+  background-color: #ebebeb;
+  padding: 0px 0px 0px 15px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  border: none;
 }
 
 .clientele {
   display: flex;
   flex-direction: column;
+  background-color: rgb(26, 34, 26);
+  border: #ebebeb 3px solid;
+  border-radius: 10px;
 }
 
 .client-header {
   display: flex;
   justify-content: space-between;
-  padding: 10px 20px;
+  padding: 20px 20px;
 }
 
 .submit-acc {
@@ -70,7 +80,6 @@
   background-color: #ebebeb;
   border: 2px solid #ebebeb;
   border-radius: 5px;
-  align-self: center;
   margin-top: 15px;
   transition: all 0.2s;
 }
@@ -82,11 +91,25 @@
 
 ul {
   padding: 0 20px;
+  display:flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.filter {
+  padding: 3px 3px;
+  font-size: 16px;
+  background-color: #ebebeb;
+  border: 2px solid #ebebeb;
+  border-radius: 5px;
 }
 
 .single-client {
   display: flex;
   justify-content: space-between;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 5px 10px;
 }
 
 .money {
@@ -124,7 +147,7 @@ ul {
 
 .amount-toChange {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 5px;
 }
 
@@ -149,11 +172,12 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-weight: 300;
 }
 
 .remove-user {
   font-size: 16px;
-  background-color: rgb(49, 65, 49);
+  background-color: rgb(26, 34, 26);
   border: none;
   color: red;
   display: flex;

@@ -64,6 +64,7 @@ function App() {
           <div className='client-header'>
             <div>NAME</div>
             <select
+              className='filter'
               name='filter'
               value={selectedFilter}
               onChange={(e) => setSelectedFilter(e.target.value)}

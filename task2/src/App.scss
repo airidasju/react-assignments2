@@ -21,11 +21,15 @@
 
 .all-clients {
   display: flex;
-  border: #ebebeb 1px solid;
-  padding: 10px;
+  border: #ebebeb 3px solid;
+  border-radius: 10px;
+  background-color: rgb(26, 34, 26);
+  padding: 20px;
+  margin-bottom: 20px;
   gap: 10px;
   justify-content: center;
   align-items: center;
+  font-family: 'Roboto Slab', serif;
 }
 
 .form {
@@ -36,14 +40,15 @@
 }
 
 .input-bin {
+  width: 350px;
   display: flex;
   justify-content: space-between;
-  gap: 50px;
   align-items: center;
 }
 
 .input-field {
   height: 20px;
+  border-radius: 10px;
 }
 
 .clientele {
@@ -58,17 +63,21 @@
 }
 
 .submit-acc {
-  width: 50px;
   display: flex;
   justify-content: center;
   padding: 3px 50px;
   font-size: 18px;
-  background-color: rgb(43, 40, 35);
-  border: 2px solid whitesmoke;
-  color: #ebebeb;
+  background-color: #ebebeb;
+  border: 2px solid #ebebeb;
   border-radius: 5px;
   align-self: center;
   margin-top: 15px;
+  transition: all 0.2s;
+}
+
+.submit-acc:hover{
+  background-color: rgb(26, 34, 26);
+  color: #ebebeb;
 }
 
 ul {
@@ -226,7 +235,7 @@ ul {
 }
 
 .summary-info {
-  border: 5px solid #ebebeb;
+  border: 4px solid #ebebeb;
   border-top: 2px solid #ebebeb;
   border-bottom: 2px solid #ebebeb;
   padding: 10px 30px;
@@ -237,7 +246,7 @@ ul {
   background-color: rgb(49, 65, 49);
   width: 700px;
   height: 120px;
-  margin-top: 90px;
+  margin-top: 60px;
   display: flex;
   gap: 20px;
   justify-content: center;

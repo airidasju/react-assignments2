@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 function Summary({ person }) {
   const [allMoney, setAllMoney] = useState(0);
 
-
   useEffect(() => {
     if (person === null) {
       return;
@@ -14,22 +13,22 @@ function Summary({ person }) {
     }
   }, [person]);
 
-  if(person === null) {
-    return
+  if (person === null) {
+    return;
   } else {
-
-    
     return (
       <div className='summary'>
-      <div>
-        <span>Total people : {person.length}</span>
+        <div className='summary-info'>
+          <div>
+            <span>Total people : {person.length}</span>
+          </div>
+          <div>
+            <span>Total money : {allMoney} </span>
+          </div>
+        </div>
       </div>
-      <div>
-        <span>Total money : {allMoney} </span>
-      </div>
-    </div>
-  );
-}
+    );
+  }
 }
 
 export default Summary;

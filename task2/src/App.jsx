@@ -62,7 +62,7 @@ function App() {
         <ContactForm addPerson={addPerson}></ContactForm>
         <div className='clientele'>
           <div className='client-header'>
-            <div>NAME</div>
+            <div className='different-font'>NAME</div>
             <select
               className='filter'
               name='filter'
@@ -73,7 +73,7 @@ function App() {
               <option value='empty'>Empty accounts</option>
               <option value='full'>Accounts with money</option>
             </select>
-            <div>AMOUNT</div>
+            <div className='different-font'>AMOUNT</div>
           </div>
           <List
             person={person}

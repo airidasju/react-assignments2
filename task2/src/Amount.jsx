@@ -97,8 +97,9 @@ function Amount({ person, setPerson, people }) {
             onChange={handleBalance}
           ></input>
         </div>
+        <div className='money-buttons'>
         <button className='money-btn add' onClick={() => handleAdd(person)}>
-          +
+          Deposit
         </button>
         <button
           className='money-btn remove'
@@ -108,8 +109,9 @@ function Amount({ person, setPerson, people }) {
               : handleNegativeMoney()
           }
         >
-          -
+          Withdraw
         </button>
+        </div>
       </form>
       {person.balance}
       {negativeMoney ? <InsufficientPop></InsufficientPop> : null}

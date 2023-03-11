@@ -10,6 +10,10 @@
   font-family: 'Roboto', sans-serif;
 }
 
+.different-font {
+  font-family: 'Roboto Slab', serif;
+}
+
 .canvas {
   display: flex;
   background-color: rgb(49, 65, 49);
@@ -113,14 +117,19 @@ ul {
 }
 
 .money {
-  width: 70px;
+  border: none;
+  border-radius: 3px;
+  background-color: #ebebeb;
+  padding: 3px 0px 3px 15px;
+  font-family: 'Roboto', sans-serif;
+  border: none;
 }
 
 .money-bin {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 300px;
+  width: 350px;
 }
 
 .money-label {
@@ -131,24 +140,32 @@ ul {
 
 .money-btn {
   border-radius: 5px;
-  width: 30px;
-  height: 30px;
   margin-top: 10px;
-  border: 1px #ebebeb solid;
-  color: #ebebeb;
+  color: #ffffff;
+  padding: 5px 10px;
+  border: none;
   &.add {
-    background-color: green;
+    background-color: rgb(106, 183, 255);
   }
 
   &.remove {
-    background-color: red;
+    background-color: rgb(255, 109, 109);
   }
+}
+
+.money-btn:hover {
+  color:rgb(26, 34, 26)
 }
 
 .amount-toChange {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  width: 150px;
+}
+
+.money-buttons {
+  display:flex;
+  justify-content: space-between;
 }
 
 .modal {

@@ -2,10 +2,10 @@ import { useState } from 'react';
 import axios from 'axios';
 
 function CookieMonster() {
+
   const [text, setText] = useState('');
 
-  const set = (e) => {
-    e.preventDefault();
+  const set = () => {
     axios
       .post('http://localhost:3003/cookie', { text }, { withCredentials: true })
       .then((res) => {
@@ -15,7 +15,6 @@ function CookieMonster() {
 
   return (
     <div style={{ color: 'black' }}>
-      <form onSubmit={set}>
         <h5>COOKIE TEXT</h5>
         <div>
           <label>NEW Cookie TEXT</label>
@@ -24,9 +23,8 @@ function CookieMonster() {
             value={text}
             onChange={(e) => setText(e.target.value)}
           ></input>
-          <button>Set</button>
+          <button onClick={set}>Set</button>
         </div>
-      </form>
     </div>
   );
 }

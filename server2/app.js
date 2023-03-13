@@ -19,15 +19,15 @@ app.use(
     extended: true,
   }),
 );
+app.use(express.json());
 
 app.use(cookieParser());
 
-app.get('/cookie', (req, res) => {
-  res.cookie('cookieMonster', 'abc');
+app.post('/cookie', (req, res) => {
+  res.cookie('cookieMonster', req.body.text, {maxAge: 3600});
   res.json({ msg: 'ok' });
 });
 
-app.use(express.json());
 
 // API
 app.get('/accounts', (req, res) => {

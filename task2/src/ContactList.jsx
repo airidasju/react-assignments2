@@ -2,6 +2,7 @@ import Amount from './Amount';
 import NotEmptyPop from './NotEmptyPop';
 import { useState } from 'react';
 import DelConfirm from './DelConfirm';
+import { v4 as uuidv4 } from 'uuid';
 
 function List({ person, setPerson, filter }) {
   const [notEmpty, setNotEmpty] = useState(false);
@@ -27,7 +28,7 @@ function List({ person, setPerson, filter }) {
         {person !== null ?
           person.sort((a, b) => (a > b ? -1 : 1))
           .map((p) => (
-            <li className='single-client' key={p.id}>
+            <li className='single-client' key={uuidv4()}>
               <div className='client-name'>
                 {p.name} {p.lastName}
                 <button
@@ -59,7 +60,7 @@ function List({ person, setPerson, filter }) {
           .sort((a, b) => (a > b ? -1 : 1))
           .filter((p) => p.balance > 0)
           .map((p) => (
-            <li className='single-client' key={p.id}>
+            <li className='single-client' key={uuidv4()}>
               <div className='client-name'>
                 {p.name} {p.lastName}
                 <button
@@ -91,7 +92,7 @@ function List({ person, setPerson, filter }) {
           .sort((a, b) => (a > b ? -1 : 1))
           .filter((p) => p.balance === 0)
           .map((p) => (
-            <li className='single-client' key={p.id}>
+            <li className='single-client' key={uuidv4()}>
               <div className='client-name'>
                 {p.name} {p.lastName}
                 <button

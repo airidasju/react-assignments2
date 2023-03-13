@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import List from './ContactList';
 import Summary from './Summary';
 import axios from 'axios';
+import CookieMonster from './CookieMonster';
 
 const URL = 'http://localhost:3003/accounts';
 
@@ -54,6 +55,7 @@ function App() {
 
   return (
     <div className='App'>
+      <CookieMonster></CookieMonster>
       <div className='bank-name'>
         BANK OF<span className='kaunas'>KAUNAS</span>
       </div>

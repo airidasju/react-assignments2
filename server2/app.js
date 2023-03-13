@@ -16,7 +16,19 @@ app.use(
 
 app.use(express.json());
 
+
+app.get('/cookie', (req, res) => {
+  res.json({msg: "ok"});
+});
+
+
 // API
+app.get('/accounts', (req, res) => {
+  let allData = fs.readFileSync('./data/accounts.json', 'utf8');
+  allData = JSON.parse(allData);
+  res.json(allData);
+});
+
 app.post('/accounts', (req, res) => {
   let allData = fs.readFileSync('./data/accounts.json', 'utf8');
   allData = JSON.parse(allData);
@@ -39,11 +51,6 @@ app.post('/accounts', (req, res) => {
 });
 });
 
-app.get('/accounts', (req, res) => {
-  let allData = fs.readFileSync('./data/accounts.json', 'utf8');
-  allData = JSON.parse(allData);
-  res.json(allData);
-});
 
 app.delete('/accounts/:id', (req, res) => {
   let allData = fs.readFileSync('./data/accounts.json', 'utf8');

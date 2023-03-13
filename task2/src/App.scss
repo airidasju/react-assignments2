@@ -14,6 +14,9 @@
   font-family: 'Roboto Slab', serif;
 }
 
+button {
+  cursor: pointer;
+}
 .canvas {
   display: flex;
   background-color: rgb(49, 65, 49);
@@ -111,7 +114,7 @@ ul {
 .single-client {
   display: flex;
   justify-content: space-between;
-  border: 2px solid rgba(255, 255, 255, 0.1);
+  background-image: linear-gradient(to right, rgb(50, 63, 50), rgb(26, 34, 26));
   border-radius: 10px;
   padding: 5px 10px;
 }
@@ -194,11 +197,12 @@ ul {
 
 .remove-user {
   font-size: 16px;
-  background-color: rgb(26, 34, 26);
+  background-color: transparent;
   border: none;
   color: red;
   display: flex;
   margin-bottom: 30px;
+  cursor: pointer;
 }
 
 .del-confirm {
@@ -208,7 +212,7 @@ ul {
   justify-content: center;
   align-items: center;
   gap: 30px;
-  padding: 5px;
+  padding: 20px 50px;
   font-size: 30px;
   height: 140px;
   width: 240px;
@@ -216,21 +220,23 @@ ul {
   left: 50%;
   top: 50%;
 
-  margin-left: -120px;
-  margin-top: -70px;
+  margin-left: -130px;
+  margin-top: 40px;
 
-  background-color: rgb(255, 136, 136);
+  background-color: rgb(37, 37, 37);
+  border: 3px solid whitesmoke;
   border-radius: 10px;
 }
 
 .del-confirmBtn {
   color: #ebebeb;
-  border: 1px #ebebeb solid;
+  border: none;
   padding: 6px;
   border-radius: 5px;
   font-size: 20px;
+  width: 100px;
   &.accept {
-    background-color: green;
+    background-color: rgb(0, 129, 0);
   }
   &.deny {
     background-color: red;
